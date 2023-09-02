@@ -1,5 +1,0 @@
-name: gonb-test
-channels:
-  - conda-forge
-dependencies:
-  - go

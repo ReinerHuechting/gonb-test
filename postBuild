@@ -1,7 +1,17 @@
-set -ex
+#!/bin/bash
+set -eu
+
+GO_VERSION=1.21
+
+curl -sfL https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz | tar -xz
+
+export PATH=$PATH:$HOME/go/bin
+
+go version
+
+go install github.com/janpfeifer/gonb@latest
 
 go install golang.org/x/tools/cmd/goimports@latest
 go install golang.org/x/tools/gopls@latest
-go install github.com/janpfeifer/gonb@latest
 
-~/go/bin/gonb --install
+gonb --install
